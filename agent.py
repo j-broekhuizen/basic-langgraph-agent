@@ -93,13 +93,13 @@ def get_customer_id_from_identifier(identifier: str) -> Optional[int]:
     if identifier.isdigit():
         return int(identifier)
     elif identifier[0] == "+":
-        query = f"SELECT CustomerId FROM Customers WHERE Phone = '{identifier}';"
+        query = f"SELECT CustomerId FROM Customer WHERE Phone = '{identifier}';"
         result = db.run(query)
         formatted_result = ast.literal_eval(result)
         if formatted_result:
             return formatted_result[0][0]
     elif "@" in identifier:
-        query = f"SELECT CustomerId FROM Customers WHERE Email = '{identifier}';"
+        query = f"SELECT CustomerId FROM Customer WHERE Email = '{identifier}';"
         result = db.run(query)
         formatted_result = ast.literal_eval(result)
         if formatted_result:
