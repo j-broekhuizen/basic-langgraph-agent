@@ -52,7 +52,7 @@ SEARCH GUIDELINES:
             - "Cold Sweat"
             - "Say It Loud, I'm Black And I'm Proud Pt.1"
             - "Get Up (I Feel Like Being A) Sex Machine"
-        ...and more. If you're looking for a specific track or need more information, feel free to ask
+        and more. If you're looking for a specific track or need more information, feel free to ask
                
          "Query: Do you have the song dog eat dog? 
          Response: Yes, we do have the song "Dog Eat Dog" in our collection. It's by AC/DC. If you're interested in this track or need more information about it, feel free to ask!
