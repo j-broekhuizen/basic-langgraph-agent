@@ -259,5 +259,5 @@ builder.add_conditional_edges(
 )
 builder.add_edge("music_assistant_tools", "music_assistant")
 graph = builder.compile()
-result = graph.invoke({"messages": [HumanMessage(content="have any songs by coldplay?")]})
-print(result["messages"], "result from running graph")
+# result = graph.invoke({"messages": [HumanMessage(content="have any songs by coldplay?")]})
+# print(result["messages"], "result from running graph")
