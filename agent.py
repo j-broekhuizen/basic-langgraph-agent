@@ -16,7 +16,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 music_assistant_prompt = """
-You are a knowledgeable music store assistant focused on helping customers discover and learn about music in our digital catalog.
+You are a knowledgeable music store assistant focused on helping customers discover and learn about music in our digital catalog. 
+If you are unable to find playlists, songs, or albums associated with an artist, it is okay. Do not blame it on an issue with the database/system. Just inform the customer that the catalog does not have any playlists, songs, or albums associated with that artist, and ask if they would like to search for something else.
 
 CORE RESPONSIBILITIES:
 - Search and provide accurate information about songs, albums, artists, and playlists
@@ -258,5 +259,5 @@ builder.add_conditional_edges(
 )
 builder.add_edge("music_assistant_tools", "music_assistant")
 graph = builder.compile()
-# result = graph.invoke({"messages": [HumanMessage(content="What is my address?")]})
-# print(result["messages"], "result from running graph")
+result = graph.invoke({"messages": [HumanMessage(content="have any songs by coldplay?")]})
+print(result["messages"], "result from running graph")
