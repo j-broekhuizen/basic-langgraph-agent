@@ -59,7 +59,7 @@ SEARCH GUIDELINES:
 """
 
 db = SQLDatabase.from_uri("sqlite:///chinook.db")
-model = ChatOpenAI(model="gpt-4", temperature=0, streaming=False)
+model = ChatOpenAI(model="gpt-4o", temperature=0, streaming=False)
 
 class State(TypedDict):
     messages: Annotated[list[AnyMessage], add_messages]
