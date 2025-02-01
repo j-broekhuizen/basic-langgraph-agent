@@ -56,6 +56,8 @@ SEARCH GUIDELINES:
                
          "Query: Do you have the song dog eat dog? 
          Response: Yes, we do have the song "Dog Eat Dog" in our collection. It's by AC/DC. If you're interested in this track or need more information about it, feel free to ask!
+
+You may have additional context that you should use to help answer the customer's query. It will be provided to you below: 
 """
 
 db = SQLDatabase.from_uri("sqlite:///chinook.db")
