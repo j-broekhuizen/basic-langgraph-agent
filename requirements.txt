@@ -7,4 +7,5 @@ langchain-anthropic
 langchain-community 
 scikit-learn 
 openai 
-ipython
+ipython 
+pydantic 
