@@ -2,7 +2,7 @@ from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.utilities import SQLDatabase
 from langchain_community.vectorstores import SKLearnVectorStore
-from langchain_core.messages import ToolMessage, SystemMessage, HumanMessage, AIMessage
+from langchain_core.messages import ToolMessage, SystemMessage
 from langchain_core.tools import tool
 from langgraph.prebuilt import ToolNode
 from langchain_core.runnables import RunnableLambda
@@ -12,7 +12,6 @@ import ast
 from typing_extensions import TypedDict
 from langgraph.graph import END, StateGraph, START
 from dotenv import load_dotenv
-from pydantic import BaseModel
 load_dotenv()
 
 music_assistant_prompt = """
@@ -66,8 +65,6 @@ model = ChatOpenAI(model="gpt-4o", temperature=0, streaming=False)
 class State(TypedDict):
     messages: Annotated[list[AnyMessage], add_messages]
 
-class Config(BaseModel):
-    context_from_parent: Optional[str] = None
 
 albums = db._execute("select * from Album")
 artists = db._execute("select * from Artist")
@@ -232,10 +229,9 @@ def get_playlists_by_song_and_artist(artist_name: str, song_name: str):
     ]
 music_tools = [get_albums_by_artist, get_tracks_by_artist, get_songs_by_genre, check_for_songs, get_playlists_by_song_and_artist]
 
-def music_assistant(state: State, config: Config) -> dict:
-    context = config.get('configurable', {}).get('context_from_parent', '')
+def music_assistant(state: State) -> dict:
     music_assistant_with_tools = model.bind_tools(music_tools)
-    result = music_assistant_with_tools.invoke([SystemMessage(content=music_assistant_prompt + context)] + state["messages"])
+    result = music_assistant_with_tools.invoke([SystemMessage(content=music_assistant_prompt)] + state["messages"])
     return {"messages": state["messages"] + [result]}
 
 def tool_node(state: State):
