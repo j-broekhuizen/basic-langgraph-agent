@@ -9,3 +9,4 @@ ipython
 pydantic 
 langgraph-cli[inmem]
 langgraph-prebuilt
+ipykernel
