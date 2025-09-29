@@ -3,9 +3,9 @@ typing-extensions
 langgraph 
 langchain-core 
 langchain-openai 
-langchain-anthropic 
 langchain-community 
-scikit-learn 
 openai 
 ipython 
 pydantic 
+langgraph-cli[inmem]
+langgraph-prebuilt
